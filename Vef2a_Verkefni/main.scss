@@ -1,0 +1,156 @@
+
+header
+{
+	font-size:3em;
+	text-align:center;
+	padding:1em 1em;
+	background-color:#1177aa;
+	
+}
+/*litir fyrir siðurnar*/
+
+body{
+	margin:0;
+}
+@mixin basicbox
+{
+	flex: 1 300px;
+	box-shadow: 0 2px 5px #888;
+	transition:transform 0.5s;
+	&:hover
+	{
+		transform: scale(1.01)
+	}
+	text-align:center;
+	box-shadow: 0 2px 5px #888;
+	display:inline-block;
+	font-family:Rockwell, serif;
+	border-radius:10px;
+	cursor: pointer;
+	transition: transform 0.5s;
+	p{
+		margin:0;
+	}
+	
+	
+}
+section
+{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	div
+	{
+		border: 2px red solid;
+	padding: 20px;
+	margin: 20px;
+	flex: 300px;
+	}
+}
+a{
+	text-decoration: none;
+}
+.box1
+{
+
+@include basicbox;
+}
+.box2
+{
+padding: 100px;
+a
+{
+	background-color:#1177aa;
+	padding: 1em 2em;
+	border:2px solid black;
+	color:black;
+}
+@include basicbox;
+}
+.box3
+{
+
+@include basicbox;
+}
+
+
+nav
+{
+
+	ul
+	{
+	cursor: pointer;
+		transition:transform 1s;
+		list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	justify-content: center;
+	background-color: #3399aa;
+	}
+	a
+	{
+		color: white;
+	text-decoration: none;
+	padding: 1em 3em;
+		display: block;
+		&:hover
+		{
+			background-color: #117799;
+			transform: scale(1.2);
+		}
+	}
+	
+}
+.buttonnav
+{
+	display: none;
+}
+@media all and (max-width: 48em)
+{
+	nav ul
+	{
+		flex-flow: column;
+		text-align: center;
+		max-height: 0;
+		transition: max-height 1s;
+		overflow: hidden;
+		
+	}
+	.buttonnav
+	{
+	cursor: pointer;
+		display: block;
+		background-color: #117799;
+		text-align: center;
+		padding: 1em;
+		color: white;
+		font-size: 1.5em;
+		cursor: pointer;
+		
+
+	}
+		.block
+		{
+			max-height: 500px;
+
+		}
+}
+@media all and (max-width: 30em)
+{
+footer
+{
+	position:fixed;
+	
+}
+}
+footer
+{
+	
+	overflow:hidden;
+	background-color:#1177aa;
+	padding:1em 1em;
+	margin:0;
+	bottom:0px;
+	width:100%;
+}

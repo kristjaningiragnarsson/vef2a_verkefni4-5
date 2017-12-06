@@ -1,0 +1,131 @@
+@charset "UTF-8";
+header {
+  font-size: 3em;
+  text-align: center;
+  padding: 1em 1em;
+  background-color: #1177aa; }
+
+/*litir fyrir si├░urnar*/
+body {
+  margin: 0; }
+
+section {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap; }
+  section div {
+    border: 2px red solid;
+    padding: 20px;
+    margin: 20px;
+    flex: 300px; }
+
+a {
+  text-decoration: none; }
+
+.box1 {
+  flex: 1 300px;
+  box-shadow: 0 2px 5px #888;
+  transition: transform 0.5s;
+  text-align: center;
+  box-shadow: 0 2px 5px #888;
+  display: inline-block;
+  font-family: Rockwell, serif;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.5s; }
+  .box1:hover {
+    transform: scale(1.01); }
+  .box1 p {
+    margin: 0; }
+
+.box2 {
+  padding: 100px;
+  flex: 1 300px;
+  box-shadow: 0 2px 5px #888;
+  transition: transform 0.5s;
+  text-align: center;
+  box-shadow: 0 2px 5px #888;
+  display: inline-block;
+  font-family: Rockwell, serif;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.5s; }
+  .box2 a {
+    background-color: #1177aa;
+    padding: 1em 2em;
+    border: 2px solid black;
+    color: black; }
+  .box2:hover {
+    transform: scale(1.01); }
+  .box2 p {
+    margin: 0; }
+
+.box3 {
+  flex: 1 300px;
+  box-shadow: 0 2px 5px #888;
+  transition: transform 0.5s;
+  text-align: center;
+  box-shadow: 0 2px 5px #888;
+  display: inline-block;
+  font-family: Rockwell, serif;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.5s; }
+  .box3:hover {
+    transform: scale(1.01); }
+  .box3 p {
+    margin: 0; }
+
+nav ul {
+  cursor: pointer;
+  transition: transform 1s;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  background-color: #3399aa; }
+nav a {
+  color: white;
+  text-decoration: none;
+  padding: 1em 3em;
+  display: block; }
+  nav a:hover {
+    background-color: #117799;
+    transform: scale(1.2); }
+
+.buttonnav {
+  display: none; }
+
+@media all and (max-width: 48em) {
+  nav ul {
+    flex-flow: column;
+    text-align: center;
+    max-height: 0;
+    transition: max-height 1s;
+    overflow: hidden; }
+
+  .buttonnav {
+    cursor: pointer;
+    display: block;
+    background-color: #117799;
+    text-align: center;
+    padding: 1em;
+    color: white;
+    font-size: 1.5em;
+    cursor: pointer; }
+
+  .block {
+    max-height: 500px; } }
+@media all and (max-width: 30em) {
+  footer {
+    position: fixed; } }
+footer {
+  overflow: hidden;
+  background-color: #1177aa;
+  padding: 1em 1em;
+  margin: 0;
+  bottom: 0px;
+  width: 100%; }
+
+/*# sourceMappingURL=main.css.map */
