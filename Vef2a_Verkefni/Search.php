@@ -1,7 +1,10 @@
 <?php
+if(empty($_SESSION['firstName']))//hérna nær hann i firstName fra login siðunni
+		header('Location: Search.php');
 	require_once("perpage.php");	
 	require_once("conn.php");
-	$db_handle = new conn();
+	require_once("dbcontroller.php");
+	$db_handle = new DBController();
 	
 	$courseNumber = "";
 	$courseName = "";
@@ -20,21 +23,21 @@
 					}
 				}
 				switch($k) {
-					case "name":
-						$name = $v;
-						$queryCondition .= "courseNumber LIKE '" . $v . "%'";
+					case "courseNumber":
+						$courseNumber = $v;
+						$queryCondition .= "courseNumber LIKE '" . $v . "%'";//leitar af courseNumber
 						break;
-					case "code":
-						$code = $v;
-						$queryCondition .= "courseName LIKE '" . $v . "%'";
+					case "courseName":
+						$courseName = $v;
+						$queryCondition .= "courseName LIKE '" . $v . "%'";//leitar af coursename
 						break;
 				}
 			}
 		}
 	}
-	$orderby = " ORDER BY courseNumber desc"; 
-	$sql = "SELECT * FROM Courses " . $queryCondition;
-	$href = 'index.php';					
+	$orderby = " ORDER BY courseNumber desc"; // raðar eftir coursenumber
+	$sql = "SELECT * FROM Courses " . $queryCondition;//nær í allt
+	$href = 'Search.php';					
 		
 	$perPage = 2; 
 	$page = 1;
@@ -44,7 +47,7 @@
 	$start = ($page-1)*$perPage;
 	if($start < 0) $start = 0;
 		
-	$query =  $sql . $orderby .  " limit " . $start . "," . $perPage; 
+	$query =  $sql . $orderby .  " limit " . $start . "," . $perPage; //fer eftir limitið á perpage functioninu
 	$result = $db_handle->runQuery($query);
 	
 	if(!empty($result)) {
@@ -59,7 +62,7 @@
 	<body>
 		
     <div id="toys-grid">      
-			<form name="frmSearch" method="post" action="index.php">
+			<form name="frmSearch" method="post" action="Search.php">
 			<div class="search-box">
 			<p><input type="text" placeholder="courseNumber" name="search[courseNumber]" class="demoInputBox" value="<?php echo $courseNumber; ?>"	/>
 			<input type="text" placeholder="courseName" name="search[courseName]" class="demoInputBox" value="<?php echo $courseName; ?>"	/>
@@ -84,13 +87,13 @@
 						if(is_numeric($k)) {
 					?>
           <tr>
-					<td><?php echo $result[$k]["courseNumber"]; ?></td>
-          <td><?php echo $result[$k]["courseName"]; ?></td>
+					<td><?php echo $result[$k]["courseNumber"]; ?></td>//echoar allt fra database student
+					<?php echo $result[$k]["courseName"]; ?></td>
 					<td><?php echo $result[$k]["courseCredits"]; ?></td>
 					<td><?php echo $result[$k]["einkunn"]; ?></td>
 					
-					<td>
-					<a class="btnEditAction" href="edit.php?id=<?php echo $result[$k]["einkunn"]; ?>">Edit</a> <a class="btnDeleteAction" href="delete.php?action=delete&id=<?php echo $result[$k]["id"]; ?>">Delete</a>
+					<td>//herna er delet og edit 
+					<a class="btnEditAction" href="edit.php?id=<?php echo $result[$k]["einkunn"]; ?>">Edit</a> <a class="btnDeleteAction" href="delete.php?action=delete&id=<?php echo $result[$k]["einkunn"]; ?>">Delete</a>
 					</td>
 					</tr>
 					<?php

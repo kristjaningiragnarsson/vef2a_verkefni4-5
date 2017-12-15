@@ -1,4 +1,4 @@
-<?php//admin siðan
+<?php//admin siðan eða usersiða
 	require 'conn.php';
 	if(empty($_SESSION['firstName']))//hérna nær hann i firstName fra login siðunni
 		header('Location: login.php');

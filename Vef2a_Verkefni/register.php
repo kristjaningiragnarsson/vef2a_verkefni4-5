@@ -4,7 +4,7 @@
 	if(isset($_POST['register'])) {
 		$errMsg = '';
 
-		$firstName = $_POST['firstName'];
+		$firstName = $_POST['firstName'];//skyrir hvað allt
 		$lastName = $_POST['lastName'];
 		$userName = $_POST['userName'];
 		$userPassword = $_POST['userPassword'];
@@ -23,7 +23,7 @@
 		
 		
 		if($errMsg == ''){
-			try {
+			try {//sendir til Student inni á database
 				$stmt = $connect->prepare('INSERT INTO Students (firstName,lastName , userName, userPassword, email) VALUES (:firstName, :lastName, :userName, :userPassword, :email)');
 				$stmt->execute(array(
 					':firstName' => $firstName,
@@ -41,7 +41,7 @@
 		}
 	}
 
-	if(isset($_GET['action']) && $_GET['action'] == 'joined') {
+	if(isset($_GET['action']) && $_GET['action'] == 'joined') {//skilur þessu ef það virkaði
 		$errMsg = 'innskráning er rétt nú geturu skráð þig inn<a href="login.php">skrá inn</a>';
 	}
 ?>

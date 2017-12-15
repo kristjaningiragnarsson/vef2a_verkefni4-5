@@ -1,5 +1,5 @@
 <?php
-	function perpage($count, $per_page = '10',$href) {
+	function perpage($count, $per_page = '10',$href) {//stjornar hversu mikið er á eini siðu
 		$output = '';
 		$paging_id = "link_perpage_box";
 		if(!isset($_POST["page"])) $_POST["page"] = 1;
